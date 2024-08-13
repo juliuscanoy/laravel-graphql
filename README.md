@@ -28,3 +28,4 @@ php artisan serve
 3. Implement better data validation. I'm used to using Laravel Request or Laravel Spatie Data for data validation, but it seems that it's different with GraphQL.
 4. Write better tests.
 5. Better scalability
+6. I could have used Docker for this project, but since my pc currently has VBox and Vagrant installed, there will be conflict with the virtualization settings.
