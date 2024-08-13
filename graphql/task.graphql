@@ -1,0 +1,24 @@
+extend type Query @guard @auth {
+  tasks: [Task!]! @all @whereAuth(relation: "user")
+}
+
+extend type Mutation @guard @auth {
+    createTask(name: String!): Task 
+        @field(resolver: "TaskMutator@create")
+
+    updateTask(id: ID! @eq, status: String!): Task
+        @field(resolver: "TaskMutator@update")
+
+    deleteTask(id: ID! @eq): Boolean
+        @field(resolver: "TaskMutator@delete")
+
+    deleteTasksByAuthUser(status: String): Boolean
+        @field(resolver: "TaskMutator@deleteTasksByAuthUser")
+}
+
+type Task {
+  id: ID!
+  name: String!
+  status: String!
+  creator: User! @belongsTo(relation: "user")
+}
