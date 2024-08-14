@@ -15,6 +15,8 @@ composer install
 php artisan migrate:fresh --seed
 ```
 
+### Create .env file by copying .env.example. Change the Database config based on your MySQL Host and Credentials
+
 ### Run the Laravel GraphQL Server
 
 ```bash
